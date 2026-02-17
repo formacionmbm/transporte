@@ -1,5 +1,9 @@
 package com.practica.transporte.entity;
 
+import com.practica.transporte.common.Billete;
+import com.practica.transporte.common.Descuento;
+import com.practica.transporte.common.Tipo;
+import com.practica.transporte.common.Validez;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
