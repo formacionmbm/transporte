@@ -25,7 +25,7 @@ public class Conductor {
     @Column(name="fecha_incorporacion")
     private LocalDate fechaIncorporacion;
 
-    @Column(name = "num_empleado", unique = true, nullable = false)
+    @Column(name = "num_empleado")
     private String numEmpleado;
 
     @Column(name="tipo_licencia")
