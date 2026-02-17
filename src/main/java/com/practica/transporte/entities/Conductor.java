@@ -37,8 +37,7 @@ public class Conductor {
     @Column(name="disponible")
     private boolean disponible;
 
-    @OneToOne
-    @JoinColumn(name="id_autobus")
+    @Column(name="id_autobus")
     private Long idAutobus;
 
 }

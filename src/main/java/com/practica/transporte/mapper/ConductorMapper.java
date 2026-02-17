@@ -1,5 +1,11 @@
 package com.practica.transporte.mapper;
 
-public interface ConductorMapper
-{
+import com.practica.transporte.dto.ConductorDTO;
+import com.practica.transporte.entities.Conductor;
+
+@Mapper(componentModel = "spring")
+public interface ConductorMapper {
+    ConductorDTO toDTO(Conductor conductor);
+
+    Conductor toEntity(ConductorDTO dto);
 }
