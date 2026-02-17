@@ -16,6 +16,15 @@ public class Conductor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name="nombre")
+    private String nombre;
+
+    @Column(name="apellidos")
+    private String apellidos;
+
+    @Column(name="fecha_incorporacion")
+    private LocalDate fechaIncorporacion;
+
     @Column(name = "num_empleado", unique = true, nullable = false)
     private String numEmpleado;
 
@@ -27,5 +36,9 @@ public class Conductor {
 
     @Column(name="disponible")
     private boolean disponible;
+
+    @OneToOne
+    @JoinColumn(name="id_autobus")
+    private Long idAutobus;
 
 }

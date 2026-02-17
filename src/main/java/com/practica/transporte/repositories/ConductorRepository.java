@@ -1,4 +1,10 @@
 package com.practica.transporte.repositories;
 
-public interface ConductorRepository {
+import com.practica.transporte.entities.Conductor;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@RequestMapping
+public interface ConductorRepository extends JpaRepository<Conductor, Long> {
+
 }
