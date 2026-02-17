@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Optional;
 
-@RequestMapping
 public interface ConductorRepository extends JpaRepository<Conductor, Long> {
     Optional<Conductor> findByNumeroEmpleado(String numeroEmpleado);
 }
