@@ -1,0 +1,4 @@
+INSERT INTO conductor (nombre, apellidos, fecha_incorporacion, num_empleado, tipo_licencia, caducidad_licencia, disponible, id_autobus) VALUES ('Carlos', 'García Ruiz', '2022-01-15', 'EMP001', 'D', '2027-01-15', true, 10);
+INSERT INTO conductor (nombre, apellidos, fecha_incorporacion, num_empleado, tipo_licencia, caducidad_licencia, disponible, id_autobus) VALUES ('Laura', 'Méndez Alba', '2023-05-20', 'EMP002', 'D+E', '2028-05-20', true, NULL);
+INSERT INTO conductor (nombre, apellidos, fecha_incorporacion, num_empleado, tipo_licencia, caducidad_licencia, disponible, id_autobus) VALUES ('Javier', 'Pérez López', '2021-11-10', 'EMP003', 'D', '2026-11-10', false, NULL);
+INSERT INTO conductor (nombre, apellidos, fecha_incorporacion, num_empleado, tipo_licencia, caducidad_licencia, disponible, id_autobus) VALUES ('Elena', 'Sanz Torres', '2024-02-01', 'EMP004', 'D1', '2029-02-01', true, 22);
