@@ -1,5 +1,9 @@
 package com.practica.transporte.entity;
 
+import com.practica.transporte.common.Billete;
+import com.practica.transporte.common.Descuento;
+import com.practica.transporte.common.Tipo;
+import com.practica.transporte.common.Validez;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,6 +31,22 @@ public class AbonoTransporte {
     private Descuento descuento;
     @Enumerated(EnumType.STRING)
     private Billete billete;
+
+    public AbonoTransporte() {
+
+    }
+
+    public AbonoTransporte
+            (int id, Tipo tipo, double precio, boolean activo, Validez validez, Descuento descuento, Billete billete) {
+        this.id= id;
+        this.tipo= tipo;
+        this.precio=precio;
+        this.fechaemision=fechaemision;
+        this.activo = activo;
+        this.validez=validez;
+        this.descuento=descuento;
+        this.billete=billete;
+    }
 
 
 }
