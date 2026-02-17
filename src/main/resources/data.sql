@@ -1,0 +1,10 @@
+INSERT INTO abono_transporte (tipo, precio, fechaemision, activo, validez, descuento, billete) VALUES ('MENOR_7_ANIOS', 0.00, '2024-01-10', true, 'ANUAL', NULL, 'INFANTIL');
+INSERT INTO abono_transporte (tipo, precio, fechaemision, activo, validez, descuento, billete) VALUES ('DE_7_A_14_ANIOS', 18.50, '2024-02-01', true, 'MENSUAL', NULL, 'ADOLESCENTE');
+INSERT INTO abono_transporte (tipo, precio, fechaemision, activo, validez, descuento, billete) VALUES ('DE_15_A_25_ANIOS', 25.00, '2024-02-15', true, 'MENSUAL', 'FAMILIA_NUMEROSA', 'JOVEN');
+INSERT INTO abono_transporte (tipo, precio, fechaemision, activo, validez, descuento, billete) VALUES ('DE_26_A_64_ANIOS', 54.60, '2024-03-01', true, 'MENSUAL', NULL, 'ADULTO');
+INSERT INTO abono_transporte (tipo, precio, fechaemision, activo, validez, descuento, billete) VALUES ('MAYOR_65_ANIOS', 3.30, '2024-01-05', true, 'MENSUAL', 'DISCAPACIDAD', 'JUBILADO');
+INSERT INTO abono_transporte (tipo, precio, fechaemision, activo, validez, descuento, billete) VALUES ('DE_15_A_25_ANIOS', 250.00, '2024-01-01', true, 'ANUAL', NULL, 'JOVEN');
+INSERT INTO abono_transporte (tipo, precio, fechaemision, activo, validez, descuento, billete) VALUES ('DE_26_A_64_ANIOS', 520.00, '2024-01-01', false, 'ANUAL', 'FAMILIA_NUMEROSA', 'ADULTO');
+INSERT INTO abono_transporte (tipo, precio, fechaemision, activo, validez, descuento, billete) VALUES ('MAYOR_65_ANIOS', 25.00, '2023-12-20', false, 'ANUAL', NULL, 'JUBILADO');
+INSERT INTO abono_transporte (tipo, precio, fechaemision, activo, validez, descuento, billete) VALUES ('DE_7_A_14_ANIOS', 1.50, '2024-03-10', true, 'DIARIO', NULL, 'ADOLESCENTE');
+INSERT INTO abono_transporte (tipo, precio, fechaemision, activo, validez, descuento, billete) VALUES ('DE_26_A_64_ANIOS', 4.50, '2024-03-12', true, 'DIARIO', NULL, 'ADULTO');

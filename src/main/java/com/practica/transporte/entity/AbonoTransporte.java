@@ -32,21 +32,4 @@ public class AbonoTransporte {
     @Enumerated(EnumType.STRING)
     private Billete billete;
 
-    public AbonoTransporte() {
-
-    }
-
-    public AbonoTransporte
-            (int id, Tipo tipo, double precio, boolean activo, Validez validez, Descuento descuento, Billete billete) {
-        this.id= id;
-        this.tipo= tipo;
-        this.precio=precio;
-        this.fechaemision=fechaemision;
-        this.activo = activo;
-        this.validez=validez;
-        this.descuento=descuento;
-        this.billete=billete;
-    }
-
-
 }

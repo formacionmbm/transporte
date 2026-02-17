@@ -5,6 +5,38 @@
     <title>Listado de Abonos</title>
 </head>
 <body>
+    <div>
+        <a th:href="@{'/'}">Volver</a>
+    </div>
+
+    <div>
+        <h1>Listado de Abonos Transporte</h1>
+    </div>
+
+    <div th:if="${list}">
+        <table id="data">
+            <thead>
+            <tr>
+                <th>Tipo</th>
+                <th>Descuento</th>
+                <th>Billete</th>
+                <th>Validez</th>
+                <th>Activo</th>
+                <th>Precio</th>
+            </tr>
+            </thead>
+            <tbody >
+            <tr th:each="l : ${list}">
+                <td th:text="${l.tipo}"></td>
+                <td th:text="${l.descuento}"></td>
+                <td th:text="${l.billete}"></td>
+                <td th:text="${l.validez}"></td>
+                <td th:text="${l.activo}"></td>
+                <td th:text="${l.precio}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
 </body>
 </html>
