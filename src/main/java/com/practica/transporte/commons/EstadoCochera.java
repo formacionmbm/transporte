@@ -1,5 +1,5 @@
-package com.practica.transporte.commons;
+    package com.practica.transporte.commons;
 
-public enum EstadoCochera {
-    ACTIVA, INACTIVA, EN_OBRAS
-}
+    public enum EstadoCochera {
+        ACTIVA, INACTIVA, EN_OBRAS
+    }
