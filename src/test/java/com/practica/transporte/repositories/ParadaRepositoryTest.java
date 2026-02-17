@@ -10,6 +10,7 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+
 @Slf4j
 @DataJpaTest
 
@@ -20,7 +21,6 @@ public class ParadaRepositoryTest {
     @Test
     void findByNumeroParada_ok(){
         log.info("[findByNumeroParada_ok]");
-        //given
         Parada parada = new Parada();
         parada.setNumeroParada(101);
 
@@ -32,5 +32,13 @@ public class ParadaRepositoryTest {
 
     }
 
+    @Test
+    void findByNumeroParada_ko(){
+        log.info("[findByNumeroParada_ko]");
+        Optional<Parada> noEncontrado = paradaRepository.findByNumeroParada(999);
+        assertThat(noEncontrado).isEmpty();
 
-}
+    }
+
+
+    }
