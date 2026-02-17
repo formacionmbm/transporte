@@ -35,7 +35,7 @@ public class ParadaRepositoryTest {
     @Test
     void findByNumeroParada_ko(){
         log.info("[findByNumeroParada_ko]");
-        Optional<Parada> noEncontrado = paradaRepository.findByNumeroParada(999);
+        Optional<Parada> noEncontrado = paradaRepository.findByNumeroParada(998);
         assertThat(noEncontrado).isEmpty();
 
     }
