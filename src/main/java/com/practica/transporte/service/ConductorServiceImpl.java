@@ -25,7 +25,7 @@ public class ConductorServiceImpl implements ConductorService {
     public ConductorDTO findByNumeroEmpleado(String numeroEmpleado) {
         log.info("findByNumeroEmpleado | Recuperando conductor con numEmpleado={}", numeroEmpleado);
 
-        Conductor conductor = conductorRepository.findByNumeroEmpleado(numeroEmpleado)
+        Conductor conductor = conductorRepository.findByNumEmpleado(numeroEmpleado)
                 .orElseThrow(() -> new RuntimeException(
                         "Conductor no encontrado con numEmpleado: " + numeroEmpleado));
 

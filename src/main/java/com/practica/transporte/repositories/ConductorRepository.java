@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface ConductorRepository extends JpaRepository<Conductor, Long> {
-    Optional<Conductor> findByNumeroEmpleado(String numeroEmpleado);
+    Optional<Conductor> findByNumEmpleado(String numeroEmpleado);
 }
