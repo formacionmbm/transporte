@@ -24,9 +24,11 @@ public class ParadaRepositoryTest {
         Parada parada = new Parada();
         parada.setNumeroParada(101);
 
+        //when
         paradaRepository.save(parada);
         Optional<Parada> encontrado = paradaRepository.findByNumeroParada(101);
 
+        //then
         assertThat(encontrado).isPresent();
         assertThat(encontrado.get().getNumeroParada()).isEqualTo(101);
 
