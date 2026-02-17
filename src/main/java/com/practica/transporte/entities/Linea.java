@@ -1,4 +1,4 @@
-package com.practica.transporte;
+package com.practica.transporte.entities;
 
 import com.practica.transporte.common.EstadoLinea;
 import com.practica.transporte.common.TipoLinea;
