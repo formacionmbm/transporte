@@ -14,24 +14,28 @@ import java.util.List;
 
 @Controller
 @Slf4j
-@RequestMapping("/inicio")
 public class CocheraController {
 
     @Autowired
     CocheraService servicio;
 
-    // Listado general (el que pide el botón de inicio)
-    @GetMapping("/l/c")
-    public String findAll(Model model) throws ServiceException {
-        log.info("[findAll]");
-        List<Cochera> list = servicio.buscarTodos();
-
-        model.addAttribute("listaCocheras", list);
-        model.addAttribute("estados", EstadoCochera.values());
-        return "t_l_cochera";
+    @GetMapping("/inicio")
+    public String showHome(Model model) throws ServiceException {
+        log.info("[showHome]");
+        return "t_inicio";
     }
 
-    // Listado con filtros (el que dispara el formulario)
+    @GetMapping("/l/c")
+    public String buscadorCochera(@RequestParam(required=false)String localidad, Model model) throws ServiceException {
+        log.info("[buscadorCochera]");
+        List<Cochera> list = servicio.buscarPorLocalidad(localidad);
+        model.addAttribute("listaCocheras", list);
+
+        return "t_l_cochera";
+
+    }
+
+
     @GetMapping("/r/c")
     public String searchCochera(@RequestParam(required = false) String localidad,
                                 @RequestParam(required = false) EstadoCochera estado,
@@ -42,8 +46,7 @@ public class CocheraController {
 
         List<Cochera> list;
 
-        // Lógica similar a la de la profe:
-        // Si hay localidad busca por ella, si no por estado, si no todos.
+
         if (localidad != null && !localidad.isEmpty()) {
             list = servicio.buscarPorLocalidad(localidad);
         } else if (estado != null) {
@@ -56,6 +59,6 @@ public class CocheraController {
         model.addAttribute("listaCocheras", list);
         model.addAttribute("estados", EstadoCochera.values());
 
-        return "t_l_cochera";
+        return "t_r_cochera";
     }
 }
