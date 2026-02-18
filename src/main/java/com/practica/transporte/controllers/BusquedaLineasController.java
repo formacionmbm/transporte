@@ -66,7 +66,7 @@ public class BusquedaLineasController {
         log.info("[busquedaPorNombre -POST]");
         log.debug("[recibido:{}]",nombre);
 
-        List<Linea> listado = servicio.busquedaPorNombre(nombre.getNombre());
+        List<Linea> listado = servicio.busquedaPorNombre(NombreLineaDTO.getNombre());
         log.debug("[Linea List:{}]", listado);
         model.addAttribute("listado", listado);
         return "/busqueda/t_linea_nombre";
