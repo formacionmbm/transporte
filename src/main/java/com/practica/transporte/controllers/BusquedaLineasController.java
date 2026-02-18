@@ -37,7 +37,7 @@ public class BusquedaLineasController {
             return "/busqueda/t_linea";
 
 
-        Linea linea = servicio.busquedaLineaPorCodigo(codigo);
+        Linea linea = servicio.busquedaLineaCodigo(codigo);
 
         log.debug("[Linea:{}]", linea);
         model.addAttribute("linea", linea);
@@ -50,7 +50,7 @@ public class BusquedaLineasController {
         log.info("[busquedaPorTipo]");
         log.debug("[tipo:{}]", tipo);
 
-        List<Linea> list=servicio.busquedaPorTipo(tipo);
+        List<Linea> list=servicio.busquedaLineaPorTipo(tipo);
 
         log.debug("[Linea List:{}]", list);
         model.addAttribute("list", list);

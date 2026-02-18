@@ -6,6 +6,7 @@ import com.practica.transporte.dto.NombreLineaDTO;
 import com.practica.transporte.entities.Linea;
 import com.practica.transporte.repositories.LineaRepository;
 import com.practica.transporte.services.exceptions.LineaNotFoundException;
+import com.practica.transporte.services.exceptions.ServicesUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +47,7 @@ public class LineaServiceImpl implements LineaService {
         try {
             Linea linea = lineaRepository.findAllByCodigo(codigo).orElseThrow(LineaNotFoundException::new);
             log.debug("linea:{}", linea);
-            return UtilServices.toDTO(linea);
+            return ServicesUtil.toDTO(linea);
         } catch (ServiceException se) {
             log.error("Error al buscar por codigo", se);
             throw se;
