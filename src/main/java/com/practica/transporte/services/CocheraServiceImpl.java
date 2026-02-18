@@ -23,22 +23,60 @@ public class CocheraServiceImpl implements CocheraService {
 
     @Override
     public List<Cochera> buscarTodos() {
+        log.info("[buscar]");
         return repositorio.findAll();
     }
 
     @Override
     public List<Cochera> buscarPorLocalidad(String localidad) {
-        return List.of();
+        log.info("[buscarPorLocalidad]");
+        log.debug("[localidad:{}]", localidad);
+
+        localidad = localidad.trim().toUpperCase();
+
+        return repositorio.findByLocalidadContainingIgnoreCase(localidad);
+
     }
 
     @Override
     public List<Cochera> buscarPorEstado(EstadoCochera estado) {
-        return List.of();
+        log.info("[buscarPorEstado]");
+        log.debug("[estado:{}]", estado);
+
+        List<Cochera> cocheras = repositorio.findAll();
+
+        return cocheras.stream().filter(f -> f.getEstado()==estado).toList();
+
+    }
+
+    @Override
+    public List<Cochera> buscarPorCodigoPostal(String codigoPostal) {
+        log.info("[buscarPorCodigoPostal]");
+        log.debug("[codigoPostal:{}]", codigoPostal);
+
+        codigoPostal = codigoPostal.trim();
+
+        return repositorio.findByCodigoPostal(codigoPostal);
+    }
+
+    @Override
+    public List<Cochera> buscarPorNombre(String nombre) {
+        log.info("[buscarPorNombre]");
+        log.debug("[nombre:{}]", nombre);
+
+        nombre = nombre.trim().toUpperCase();
+
+        return repositorio.findByNombre(nombre);
     }
 
     @Override
     public void crearCochera(Cochera cochera){
+        log.info("[crearCochera]");
+        log.debug("[cochera:{}]",cochera);
 
+        //TODO agregar validaciones
+
+        repositorio.save(cochera);
     }
 
 
