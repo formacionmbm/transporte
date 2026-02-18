@@ -19,13 +19,7 @@ public class CocheraController {
     @Autowired
     CocheraService servicio;
 
-    @GetMapping("/inicio")
-    public String showHome(Model model) throws ServiceException {
-        log.info("[showHome]");
-        return "t_inicio";
-    }
-
-    @GetMapping("/l/c")
+    @GetMapping("/c/l")
     public String buscadorCochera(@RequestParam(required=false)String localidad, Model model) throws ServiceException {
         log.info("[buscadorCochera]");
         List<Cochera> list = servicio.buscarPorLocalidad(localidad);
@@ -36,7 +30,7 @@ public class CocheraController {
     }
 
 
-    @GetMapping("/r/c")
+    @GetMapping("/c/r")
     public String searchCochera(@RequestParam(required = false) String localidad,
                                 @RequestParam(required = false) EstadoCochera estado,
                                 Model model) throws ServiceException {
