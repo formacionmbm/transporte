@@ -5,9 +5,10 @@ import com.practica.transporte.entities.Linea;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-import javax.sound.sampled.Line;
+import javax.swing.*;
 
-@Mapper((componentModel = "spring"))
+
+@Mapper(componentModel = Spring)
 public interface LineaMapper {
     @Mapping(source = "linea.id", target = "lineaId")
     LineaDTO toDTO(Linea linea);
