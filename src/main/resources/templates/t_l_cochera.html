@@ -10,20 +10,26 @@
 <hr>
 
 <form th:action="@{/l/c}" method="get" class="row g-3 mb-4">
-    <div class="col-md-4">
+    <div class="col-md-3">
+        <input type="text" name="nombre" class="form-control" placeholder="Filtrar por nombre">
+    </div>
+    <div class="col-md-3">
         <input type="text" name="localidad" class="form-control" placeholder="Filtrar por localidad">
     </div>
-    <div class="col-md-4">
+    <div class="col-md-2">
+        <input type="text" name="codigoPostal" class="form-control" placeholder="C.P.">
+    </div>
+    <div class="col-md-2">
         <select name="estado" class="form-select">
             <option value="">Todos los estados</option>
             <option th:each="est : ${T(com.practica.transporte.commons.EstadoCochera).values()}"
                     th:value="${est}" th:text="${est}"></option>
         </select>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-1">
         <button type="submit" class="btn btn-secondary w-100">Filtrar</button>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-1">
         <a th:href="@{/l/c}" class="btn btn-outline-dark w-100">Limpiar</a>
     </div>
 </form>
@@ -34,7 +40,7 @@
         <th>ID</th>
         <th>Nombre</th>
         <th>Localidad</th>
-        <th>Capacidad</th>
+        <th>C.P.</th> <th>Capacidad</th>
         <th>Ocupación</th>
         <th>Estado</th>
     </tr>
@@ -44,12 +50,12 @@
         <td th:text="${c.id}"></td>
         <td th:text="${c.nombre}"></td>
         <td th:text="${c.localidad}"></td>
-        <td th:text="${c.plazasTotales}"></td>
+        <td th:text="${c.codigoPostal}"></td> <td th:text="${c.plazasTotales}"></td>
         <td th:text="${c.plazasOcupadas}"></td>
         <td>
-                    <span th:text="${c.estado}"
-                          th:classappend="${c.estado.name() == 'ACTIVA' ? 'badge bg-success' : (c.estado.name() == 'EN_OBRAS' ? 'badge bg-warning' : 'badge bg-danger')}">
-                    </span>
+            <span th:text="${c.estado}"
+                  th:classappend="${c.estado.name() == 'ACTIVA' ? 'badge bg-success' : (c.estado.name() == 'EN_OBRAS' ? 'badge bg-warning' : 'badge bg-danger')}">
+            </span>
         </td>
     </tr>
     </tbody>

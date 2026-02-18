@@ -11,28 +11,36 @@
         <h3>Nueva Cochera</h3>
         <p class="text-muted">Rellene los datos para dar de alta en el sistema</p>
         <hr>
-        <form th:action="@{/r/c}" th:object="${cochera}" method="post">
+        <form th:action="@{/r/c}" method="post">
             <div class="mb-3">
                 <label class="form-label">Nombre</label>
-                <input type="text" th:field="*{nombre}" class="form-control" required>
+                <input type="text" name="nombre" class="form-control" placeholder="Ej: Central Norte" required>
             </div>
             <div class="mb-3">
                 <label class="form-label">Dirección</label>
-                <input type="text" th:field="*{direccion}" class="form-control" required>
+                <input type="text" name="direccion" class="form-control" placeholder="Calle, número, piso..." required>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Localidad / CP</label>
-                <input type="text" th:field="*{localidad}" class="form-control" required>
+
+            <div class="row">
+                <div class="col-md-8 mb-3">
+                    <label class="form-label">Localidad</label>
+                    <input type="text" name="localidad" class="form-control" placeholder="Ej: Madrid" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">C.P.</label>
+                    <input type="text" name="codigoPostal" class="form-control" placeholder="28001" required>
+                </div>
             </div>
+
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label class="form-label">Plazas Totales</label>
-                    <input type="number" th:field="*{plazasTotales}" class="form-control" min="1" required>
+                    <input type="number" name="plazasTotales" class="form-control" min="1" required>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label class="form-label">Estado Inicial</label>
-                    <select th:field="*{estado}" class="form-select">
-                        <option th:each="est : ${T(com.practica.transporte.commons.EstadoCochera).values()}"
+                    <select name="estado" class="form-select">
+                        <option th:each="est : ${estados}"
                                 th:value="${est}" th:text="${est}"></option>
                     </select>
                 </div>

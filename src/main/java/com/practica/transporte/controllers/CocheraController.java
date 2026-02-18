@@ -9,50 +9,55 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @Controller
 @Slf4j
 public class CocheraController {
-
     @Autowired
     CocheraService servicio;
 
-    @GetMapping("/c/l")
-    public String buscadorCochera(@RequestParam(required=false)String localidad, Model model) throws ServiceException {
-        log.info("[buscadorCochera]");
-        List<Cochera> list = servicio.buscarPorLocalidad(localidad);
-        model.addAttribute("listaCocheras", list);
+    @GetMapping("/inicio")
+    public String showHome(Model model) throws ServiceException {
 
-        return "t_l_cochera";
+        log.info("[showHome]");
+        return "t_inicio";
 
     }
 
-
-    @GetMapping("/c/r")
-    public String searchCochera(@RequestParam(required = false) String localidad,
-                                @RequestParam(required = false) EstadoCochera estado,
-                                Model model) throws ServiceException {
-        log.info("[searchCochera]");
-        log.debug("[localidad: {}]", localidad);
-        log.debug("[estado: {}]", estado);
-
-        List<Cochera> list;
-
-
-        if (localidad != null && !localidad.isEmpty()) {
+    @GetMapping("/l/c")
+    public String buscadorCochera(@RequestParam(required=false)String localidad,
+                                  @RequestParam(required=false)String codigoPostal,
+                                  @RequestParam(required=false)String nombre,
+                                  @RequestParam(required=false)EstadoCochera estado,
+                                  Model model) throws ServiceException {
+        log.info("[buscadorCochera]");
+        List<Cochera> list = servicio.buscarTodos();
+        if (nombre != null && !nombre.isEmpty()) {
+            list = servicio.buscarPorNombre(nombre);
+        }else if (localidad != null && !localidad.isEmpty()) {
             list = servicio.buscarPorLocalidad(localidad);
         } else if (estado != null) {
             list = servicio.buscarPorEstado(estado);
-        } else {
-            list = servicio.buscarTodos();
+        } else if (codigoPostal != null && !codigoPostal.isEmpty()) {
+            list = servicio.buscarPorCodigoPostal(codigoPostal);
         }
-
-        log.debug("[Cocheras List: {}]", list);
         model.addAttribute("listaCocheras", list);
-        model.addAttribute("estados", EstadoCochera.values());
-
-        return "t_r_cochera";
+        return "t_l_cochera";
     }
+
+
+@GetMapping("/r/c")
+public String mostrarFormularioRegistro(Model model) {
+    log.info("[mostrarFormularioRegistro]");
+    model.addAttribute("estados", EstadoCochera.values());
+    return "t_r_cochera";
+}
+
+@PostMapping("/r/c")
+public String guardarNuevaCochera(Cochera cochera) throws ServiceException {
+    log.info("[guardarNuevaCochera]:{}", cochera);
+    servicio.crearCochera(cochera);
+    return "redirect:/l/c";
+}
 }

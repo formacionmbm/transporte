@@ -66,7 +66,7 @@ public class CocheraServiceImpl implements CocheraService {
 
         nombre = nombre.trim().toUpperCase();
 
-        return repositorio.findByNombre(nombre);
+        return repositorio.findByNombreContainingIgnoreCase(nombre);
     }
 
     @Override

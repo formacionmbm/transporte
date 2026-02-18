@@ -15,6 +15,6 @@ public interface CocheraRepository extends JpaRepository<Cochera, Long> {
 
     List<Cochera> findByLocalidadContainingIgnoreCase(String localidad);
     List<Cochera> findByCodigoPostal(String codigoPostal);
-    List<Cochera> findByNombre(String nombre);
+    List<Cochera> findByNombreContainingIgnoreCase(String nombre);
 
 }

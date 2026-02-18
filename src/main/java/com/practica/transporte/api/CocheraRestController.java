@@ -35,4 +35,25 @@ public class CocheraRestController {
 
         return list;
     }
+    @GetMapping("/l/c/{cod}")
+    public List<Cochera> findCocherasByCodigoPostal(@PathVariable(name="cod") String codigoPostal) throws ServiceException {
+        log.info("[findCocherasByCodigoPostal]");
+        log.debug("[C.Postal:{}]", codigoPostal);
+
+        List<Cochera> list = servicio.buscarPorCodigoPostal(codigoPostal);
+        log.debug("[Cocheras lista por C.Postal:{}", list);
+
+        return list;
+    }
+
+     @GetMapping("/l/c/{nom}")
+    public List<Cochera> findCocherasByNombre(@PathVariable(name="nom") String nombre) throws ServiceException {
+        log.info("[findCocherasByNombre]");
+        log.debug("[nombre:{}]", nombre);
+
+        List<Cochera> list = servicio.buscarPorNombre(nombre);
+        log.debug("[Cocheras lista por nombre:{}", list);
+
+        return list;
+     }
 }
