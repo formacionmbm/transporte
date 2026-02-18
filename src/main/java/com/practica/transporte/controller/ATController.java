@@ -3,9 +3,10 @@ package com.practica.transporte.controller;
 import com.practica.transporte.common.Billete;
 import com.practica.transporte.common.Descuento;
 import com.practica.transporte.common.Tipo;
+import com.practica.transporte.common.TipoDescuento;
 import com.practica.transporte.common.Validez;
 import com.practica.transporte.entity.AbonoTransporte;
-import com.practica.transporte.service.ATService;
+import com.practica.transporte.service.interfaces.ATService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +26,7 @@ public class ATController {
 
     @GetMapping("/buscador")
     public String buscador(@RequestParam(required=false) Tipo tipo,
-                           @RequestParam(required=false) Descuento descuento, Model model){
+                           @RequestParam(required=false) TipoDescuento descuento, Model model){
         log.info("[buscador]");
         log.debug("[tipo:{}]",tipo);
 
