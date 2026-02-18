@@ -1,8 +1,8 @@
 package com.practica.transporte.entity;
 
-import com.practica.transporte.common.Billete;
-import com.practica.transporte.common.Descuento;
+import com.practica.transporte.common.TipoBillete;
 import com.practica.transporte.common.Tipo;
+import com.practica.transporte.common.TipoDescuento;
 import com.practica.transporte.common.Validez;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -28,8 +28,8 @@ public class AbonoTransporte {
     @Enumerated(EnumType.STRING)
     private Validez validez;
     @Enumerated(EnumType.STRING)
-    private Descuento descuento;
+    private TipoDescuento tipodescuento;
     @Enumerated(EnumType.STRING)
-    private Billete billete;
+    private TipoBillete tipobillete;
 
 }

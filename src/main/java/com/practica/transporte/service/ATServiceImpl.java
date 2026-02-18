@@ -1,6 +1,6 @@
 package com.practica.transporte.service;
 
-import com.practica.transporte.common.Descuento;
+import com.practica.transporte.common.TipoDescuento;
 import com.practica.transporte.common.Tipo;
 import com.practica.transporte.entity.AbonoTransporte;
 import com.practica.transporte.repository.ATRepository;
@@ -28,10 +28,10 @@ public class ATServiceImpl implements ATService {
     }
 
     @Override
-    public Optional<AbonoTransporte> buscarPorId(int id){
+    public AbonoTransporte buscarPorId(int id){
         log.info("[findById]");
         log.debug("[findById]");
-        return atRepository.findById(id);
+        return atRepository.findById(id).orElse(null);
     }
 
     @Override
@@ -42,7 +42,7 @@ public class ATServiceImpl implements ATService {
     }
 
     @Override
-    public List<AbonoTransporte> buscarPorDescuento(Descuento descuento) {
+    public List<AbonoTransporte> buscarPorDescuento(TipoDescuento descuento) {
         log.info("[busquedaPorDescuento]");
         log.debug("[busquedaPorDescuento]");
         return atRepository.findByDescuento(descuento);
