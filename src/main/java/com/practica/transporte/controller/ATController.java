@@ -17,28 +17,28 @@ import java.util.Optional;
 
 @Controller
 @Slf4j
-@RequestMapping("/at")
+@RequestMapping("/listado")
 public class ATController {
 
     @Autowired
     ATService servicio;
 
-    @GetMapping("/buscador")
-    public String buscador(@RequestParam(required=false) Tipo tipo,
-                           @RequestParam(required=false) Descuento descuento, Model model){
+    @GetMapping
+    public String buscador(@RequestParam(required=false) Tipo tipo
+                           , Model model){
         log.info("[buscador]");
         log.debug("[tipo:{}]",tipo);
 
         if (tipo==null) {
             List<AbonoTransporte> list = servicio.listarTodas();
             model.addAttribute("list", list);
-            return "/at/buscador";
+            return "t_listado";
         }
         List<AbonoTransporte> listTipo=servicio.buscarPorTipo(tipo);
 
         model.addAttribute("listTipo", listTipo);
 
-        return "/buscador/t_buscador";
+        return "t_listado";
     }
 
 
