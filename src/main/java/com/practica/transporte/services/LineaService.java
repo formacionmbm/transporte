@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface LineaService {
 
-    List<Linea> busquedaPorTipo(TipoLinea tipo) throws ServiceException;
+    List<LineaDTO> busquedaPorTipo(TipoLinea tipo) throws ServiceException;
 
-    Linea busquedaLineaPorCodigo(String codigo) throws ServiceException;
+    LineaDTO busquedaLineaPorCodigo(String codigo) throws ServiceException;
 
-    List<Linea> busquedaPorNombre(String nombre) throws ServiceException;
+    LineaDTO busquedaPorNombre(String nombre) throws ServiceException;
 }
