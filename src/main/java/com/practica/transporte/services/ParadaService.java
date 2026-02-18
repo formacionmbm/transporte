@@ -3,11 +3,13 @@ package com.practica.transporte.services;
 import com.practica.transporte.entities.Parada;
 import com.practica.transporte.repositories.ParadaRepository;
 import com.practica.transporte.services.exception.ServiceException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class ParadaService {
 
 
@@ -18,13 +20,11 @@ public class ParadaService {
     }
 
     public Parada buscarPorNumero(int numeroParada) throws ServiceException{
-        Optional<Parada> resultado = repository.findByNumeroParada(numeroParada);
+        Parada parada = repository.findByNumeroParada(numeroParada)
+                .orElseThrow(()->new ServiceException("No se encuentra la parada con numero: " + numeroParada));
 
-        if(resultado.isPresent()){
-            return resultado.get();
-        }else {
-            throw new ServiceException("No se encuentra la parada con numero: " + numeroParada);
-        }
+        log.debug("[parada:{}",parada);
+        return parada;
     }
 
     public Parada guardarParada(Parada parada){
