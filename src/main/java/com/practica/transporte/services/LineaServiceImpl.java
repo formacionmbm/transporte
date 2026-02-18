@@ -67,7 +67,7 @@ public class LineaServiceImpl implements LineaService {
             return null;
             } catch (Exception e) {
                 log.error("Error al buscar por codigo", e);
-                throw new ServiceException("Error al buscar el codigo" + codigo);
+                throw new ServiceException("Error al buscar el codigo" + nombre);
             }
         }
         private static LineaDTO toDTO(Linea linea){
