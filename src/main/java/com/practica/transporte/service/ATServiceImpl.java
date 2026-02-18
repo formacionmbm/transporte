@@ -4,11 +4,11 @@ import com.practica.transporte.common.TipoDescuento;
 import com.practica.transporte.common.Tipo;
 import com.practica.transporte.entity.AbonoTransporte;
 import com.practica.transporte.repository.ATRepository;
+import com.practica.transporte.service.interfaces.ATService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Slf4j
@@ -23,14 +23,14 @@ public class ATServiceImpl implements ATService {
     @Override
     public List<AbonoTransporte> listarTodas() {
         log.info("[listarTodas]");
-        log.debug("[listarTodas]");
+
         return atRepository.findAll();
     }
 
     @Override
     public AbonoTransporte buscarPorId(int id){
         log.info("[findById]");
-        log.debug("[findById]");
+
         return atRepository.findById(id).orElse(null);
     }
 
@@ -42,10 +42,10 @@ public class ATServiceImpl implements ATService {
     }
 
     @Override
-    public List<AbonoTransporte> buscarPorDescuento(TipoDescuento descuento) {
+    public List<AbonoTransporte> buscarPorDescuento(TipoDescuento tipodescuento) {
         log.info("[busquedaPorDescuento]");
         log.debug("[busquedaPorDescuento]");
-        return atRepository.findByDescuento(descuento);
+        return atRepository.findByDescuento(tipodescuento);
     }
 
     @Override

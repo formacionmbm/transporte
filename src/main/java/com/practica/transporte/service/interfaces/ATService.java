@@ -1,4 +1,4 @@
-package com.practica.transporte.service;
+package com.practica.transporte.service.interfaces;
 
 import com.practica.transporte.common.TipoDescuento;
 import com.practica.transporte.common.Tipo;
@@ -10,6 +10,6 @@ public interface ATService {
     public List<AbonoTransporte> listarTodas();
     public AbonoTransporte buscarPorId(int id);
     public List<AbonoTransporte> buscarPorTipo(Tipo tipo);
-    public List<AbonoTransporte> buscarPorDescuento(TipoDescuento descuento);
+    public List<AbonoTransporte> buscarPorDescuento(TipoDescuento tipodescuento);
     void crearAbono(AbonoTransporte abono);
 }

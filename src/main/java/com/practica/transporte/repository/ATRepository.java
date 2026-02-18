@@ -11,7 +11,7 @@ import java.util.List;
 public interface ATRepository extends JpaRepository<AbonoTransporte, Integer> {
 
     public List<AbonoTransporte> findByTipo(@Param ("Tipo") Tipo tipo);
-    public List<AbonoTransporte> findByDescuento(@Param ("Desc") TipoDescuento descuento);
+    public List<AbonoTransporte> findByDescuento(@Param ("Desc") TipoDescuento tipodescuento);
 
 }
 
