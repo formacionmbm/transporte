@@ -25,7 +25,6 @@ public class CocheraRestController {
         return lista;
     }
 
-
     @GetMapping("/l/c/{loc}")
     public List<Cochera> findCocherasByLocalidad(@PathVariable(name="loc") String localidad) throws ServiceException {
         log.info("[findCocherasByLocalidad]");

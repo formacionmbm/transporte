@@ -10,6 +10,8 @@ public interface CocheraService {
     public List<Cochera> buscarTodos();
     public List<Cochera> buscarPorLocalidad(String localidad);
     public List<Cochera> buscarPorEstado(EstadoCochera estado);
+    public List<Cochera> buscarPorCodigoPostal(String codigoPostal);
+    public List<Cochera> buscarPorNombre(String nombre);
 
     public void crearCochera(Cochera cochera);
 
