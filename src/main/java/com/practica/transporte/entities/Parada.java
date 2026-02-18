@@ -17,5 +17,4 @@ public class Parada {
     private int numeroParada;
     private String nombre;
 
-
 }
