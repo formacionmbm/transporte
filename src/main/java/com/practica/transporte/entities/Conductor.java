@@ -1,5 +1,6 @@
 package com.practica.transporte.entities;
 
+import com.practica.transporte.common.EstadoConductor;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,29 +16,13 @@ public class Conductor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name="nombre")
     private String nombre;
-
-    @Column(name="apellidos")
     private String apellidos;
-
-    @Column(name="fecha_incorporacion")
     private LocalDate fechaIncorporacion;
-
-    @Column(name = "num_empleado")
     private String numEmpleado;
-
-    @Column(name="tipo_licencia")
-    private String tipoLicencia;
-
-    @Column(name="caducidad_licencia")
-    private LocalDate caducidadLicencia;
-
-    @Column(name="disponible")
-    private boolean disponible;
-
-    @Column(name="id_autobus")
-    private Long idAutobus;
-
+    @OneToOne
+    @JoinColumn(name = "licencia_id", nullable = false, unique = true)
+    private LicenciaConductor licencia;
+    private Integer disponible;
+    private EstadoConductor estadoConductor;
 }

@@ -1,5 +1,6 @@
 package com.practica.transporte.dto;
 
+import com.practica.transporte.common.EstadoConductor;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,6 +13,7 @@ public class ConductorDTO {
     private String nombre;
     private String apellidos;
     private String numEmpleado;
-    private boolean disponible;
-    private Long idAutobus;
+    private Long licenciaId;
+    private Integer disponible;
+    private EstadoConductor estadoConductor;
 }

@@ -29,11 +29,9 @@ public class ConductorServiceImpl implements ConductorService {
                 .orElseThrow(() -> new RuntimeException(
                         "Conductor no encontrado con numEmpleado: " + numeroEmpleado));
 
-        ConductorDTO dto = conductorMapper.toDTO(conductor);
+        log.debug("findByNumeroEmpleado | Conductor encontrado: {}", conductor);
 
-        log.debug("findByNumeroEmpleado | Conductor encontrado: {}", dto);
-
-        return dto;
+        return conductorMapper.toDTO(conductor);
     }
 
     @Override
