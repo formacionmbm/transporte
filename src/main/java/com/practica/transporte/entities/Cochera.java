@@ -20,10 +20,16 @@ public class Cochera {
     private String nombre;
     private String direccion;
     private String localidad;
+    private String codigoPostal;
 
     private int plazasTotales;
     private int plazasOcupadas;
 
     @Enumerated(EnumType.STRING)
     private EstadoCochera estado; // ACTIVA, INACTIVA, EN_OBRAS
+
+    private int getPlazasDisponibles() {
+        return this.plazasTotales - this.plazasOcupadas;
+    }
+
 }
