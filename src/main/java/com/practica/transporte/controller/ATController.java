@@ -17,13 +17,13 @@ import java.util.Optional;
 
 @Controller
 @Slf4j
-@RequestMapping("/listado")
+@RequestMapping("/at")
 public class ATController {
 
     @Autowired
     ATService servicio;
 
-    @GetMapping
+    @GetMapping("/buscador")
     public String buscador(@RequestParam(required=false) Tipo tipo
                            , Model model){
         log.info("[buscador]");
