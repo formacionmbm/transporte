@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Buscador de Conductores</title>
+</head>
+<body>
+<h1>Buscador de Conductores</h1>
+
+<div th:if="${conductorDTO != null}">
+    <h2>Conductor Encontrado:</h2>
+    <p>Nombre: <span th:text="${conductorDTO.nombre}"></span></p>
+    <p>Apellido: <span th:text="${conductorDTO.apellido}"></span></p>
+    <p>Número de Empleado: <span th:text="${conductorDTO.numeroEmpleado}"></span></p>
+</div>
+
+<div th:if="${conductorDTO == null and numEmple != null}">
+    <p>No se encontró ningún conductor con ese número.</p>
+</div>
+
+<div th:if="${list != null}">
+    <h2>Lista de Conductores:</h2>
+    <ul>
+        <li th:each="c : ${list}">
+            <span th:text="${c.numeroEmpleado}"></span> -
+            <span th:text="${c.nombre}"></span>
+            <span th:text="${c.apellido}"></span>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
