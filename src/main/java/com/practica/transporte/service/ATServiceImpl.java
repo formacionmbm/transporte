@@ -45,7 +45,7 @@ public class ATServiceImpl implements ATService {
     public List<AbonoTransporte> buscarPorDescuento(TipoDescuento tipodescuento) {
         log.info("[busquedaPorDescuento]");
         log.debug("[busquedaPorDescuento]");
-        return atRepository.findByDescuento(tipodescuento);
+        return atRepository.findByTipodescuento(tipodescuento);
     }
 
     @Override

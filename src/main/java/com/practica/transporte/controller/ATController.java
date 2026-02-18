@@ -1,11 +1,13 @@
 package com.practica.transporte.controller;
 
-import com.practica.transporte.common.Billete;
-import com.practica.transporte.common.Descuento;
+
 import com.practica.transporte.common.Tipo;
+import com.practica.transporte.common.TipoBillete;
+import com.practica.transporte.common.TipoDescuento;
 import com.practica.transporte.common.Validez;
 import com.practica.transporte.entity.AbonoTransporte;
-import com.practica.transporte.service.ATService;
+
+import com.practica.transporte.service.interfaces.ATService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +27,7 @@ public class ATController {
 
     @GetMapping("/buscador")
     public String buscador(@RequestParam(required=false) Tipo tipo,
-                           @RequestParam(required=false) Descuento descuento, Model model){
+                           @RequestParam(required=false) TipoDescuento descuento, Model model){
         log.info("[buscador]");
         log.debug("[tipo:{}]",tipo);
 
@@ -49,15 +51,15 @@ public class ATController {
         log.debug("[id: {}]", id);
 
         if (id != null){
-            Optional<AbonoTransporte> atExistente=servicio.buscarPorId(id);
+            AbonoTransporte atExistente=servicio.buscarPorId(id);
             log.debug("[abonotrasporte: {}]",atExistente);
             model.addAttribute("at", atExistente);
         }else {
             model.addAttribute("at", new AbonoTransporte());
         }
         model.addAttribute("tipos", Tipo.values());
-        model.addAttribute("billetes", Billete.values());
-        model.addAttribute("descuentos", Descuento.values());
+        model.addAttribute("billetes", TipoBillete.values());
+        model.addAttribute("descuentos", TipoDescuento.values());
         model.addAttribute("validez", Validez.values());
 
         return "/t_formcrear";
