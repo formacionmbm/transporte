@@ -26,14 +26,14 @@ public class BuscadorAutobusesController {
     @GetMapping
     public String buscador(@RequestParam(required = false) String matricula, Model model){
         log.info("[buscador]");
-        List<Autobus> autobueses = servicio.buscarAutobuses(matricula);
+        log.debug("[matricula:{}]", matricula);
 
-        model.addAttribute("listado",autobueses);
-       // log.debug("[msg:{}",model.getAttribute("msg"));
+        List<Autobus> autobuses = servicio.buscarAutobuses(matricula);
+
+        model.addAttribute("listado", autobuses);
+        model.addAttribute("matricula", matricula); // para que el input se quede con lo escrito
 
         return "buscadores/t_b_autobuses";
-
-
-
     }
+
 }

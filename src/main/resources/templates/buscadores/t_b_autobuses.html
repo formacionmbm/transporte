@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscador Autobuses</title>
+</head>
+<body>
+
+<h1>Buscador de Autobuses</h1>
+
+<form th:action="@{/buscador/autobuses}" method="get">
+    <label>Matrícula:</label>
+    <input type="text" name="matricula" th:value="${matricula}">
+    <button type="submit">Buscar</button>
+</form>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Matrícula</th>
+        <th>Bastidor</th>
+        <th>Flota</th>
+        <th>Estado</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="a : ${listado}">
+        <td th:text="${a.id}"></td>
+        <td th:text="${a.matricula}"></td>
+        <td th:text="${a.bastidor}"></td>
+        <td th:text="${a.flota}"></td>
+        <td th:text="${a.estado != null ? a.estado.nombre : ''}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
